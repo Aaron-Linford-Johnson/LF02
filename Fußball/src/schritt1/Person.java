@@ -25,4 +25,11 @@ public abstract class Person {
     public void setAlter(int alter) {
         this.alter = alter;
     }
+
+    @Override
+    public String toString() {
+        return "Name: " + name + '\n' +
+                "Alter: " + alter;
+    }
 }
+
