@@ -12,8 +12,7 @@ public class Trainer extends Person{
 
     @Override
     public String toString() {
-        return "Trainer:" + '\n' +
-                super.toString() +
+        return "\n" + super.toString() + "\n" +
                 "Erfahrung: " + erfahrung;
     }
 
