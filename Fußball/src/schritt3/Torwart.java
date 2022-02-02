@@ -1,6 +1,8 @@
-package schritt1;
+package schritt3;
 
-public class Torwart extends Spieler{
+import schritt1.Spieler;
+
+public class Torwart extends Spieler {
     private int reaktion;
 
     public Torwart(String name, int alter, int staerke, int motivation, int reaktion){

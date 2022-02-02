@@ -1,6 +1,5 @@
-package schritt1;
+package schritt5;
 
-import schritt3.Person;
 
 public class Trainer extends Person {
 

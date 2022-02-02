@@ -1,4 +1,4 @@
-package schritt1;
+package schritt4;
 
 public abstract class Person {
 

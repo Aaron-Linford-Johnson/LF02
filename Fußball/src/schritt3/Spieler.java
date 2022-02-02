@@ -1,6 +1,4 @@
-package schritt1;
-
-import schritt3.Person;
+package schritt3;
 
 public class Spieler extends Person {
 
