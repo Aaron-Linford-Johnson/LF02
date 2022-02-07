@@ -56,4 +56,7 @@ public class Spieler extends Person {
         this.erzielteTore = erzielteTore;
     }
 
+    public void addErzielteTore(){
+        erzielteTore++;
+    }
 }

@@ -5,15 +5,18 @@ public class Ergebnis {
     private int toreGast;
 
 
-    public int getToreHeim() {
+    public void addToreHeim() {
         toreHeim ++;
-        return toreHeim;
+
     }
 
-    public int getToreGast() {
+    public void addToreGast() {
         toreGast ++;
-        return toreGast;
+
     }
+
+
+
 
     @Override
     public String toString() {

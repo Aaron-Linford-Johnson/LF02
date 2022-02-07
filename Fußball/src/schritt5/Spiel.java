@@ -10,6 +10,7 @@ public class Spiel {
     public Spiel(Mannschaft heim, Mannschaft gast){
         this.heim = heim;
         this.gast = gast;
+
     }
 
     public Mannschaft getHeim() {
@@ -26,5 +27,13 @@ public class Spiel {
 
     public StringBuilder getSpielbericht() {
         return Spielbericht;
+    }
+
+    @Override
+    public String toString() {
+        return "Heimmannschaft: " + heim +
+                "\nGastmannschaft" + gast +
+                "\nErgebnis: " + ergebnis +
+                "\nSpielbericht: " + Spielbericht;
     }
 }

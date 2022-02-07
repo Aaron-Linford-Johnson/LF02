@@ -62,11 +62,11 @@ public class Mannschaft {
         this.torwart = torwart;
     }
 
-    public ArrayList getSpielerliste() {
+    public ArrayList<Spieler> getSpielerliste() {
         return spielerliste;
     }
 
-    public void setSpielerliste(ArrayList spielerliste) {
+    public void setSpielerliste(ArrayList<Spieler> spielerliste) {
         this.spielerliste = spielerliste;
     }
 
