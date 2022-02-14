@@ -1,5 +1,6 @@
 package Schritt4;
 
+
 public class Programm {
     public static void main(String[] args) throws KeineKraftException {
 
@@ -11,9 +12,5 @@ public class Programm {
         } catch (KeineKraftException e) {
             System.out.println(e.getMessage());
         }
-
-
-
-
     }
 }
