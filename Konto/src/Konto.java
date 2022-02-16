@@ -16,6 +16,7 @@ public class Konto {
     }
 
     public double getKontoStand() {
+        System.out.print("Derzeitiger Kontostand: ");
         return kontoStand;
     }
 
@@ -35,16 +36,21 @@ public class Konto {
         this.zinsGuthaben = zinsGuthaben;
     }
 
-    public void einzahlen(double betrag) {
+    public boolean einzahlen(double betrag) {
         kontoStand += betrag;
+        System.out.println(betrag + "€ wurden auf ihrem Konto eingezahlt.");
+        return false;
     }
 
     public boolean auszahlen(double betrag) {
         if (kontoStand + kreditLimit >= betrag) {
            kontoStand -= betrag;
+            System.out.println(betrag + "€ wurden aus ihrem Konto ausgezahlt.");
             return true;
         }
         else {
+            System.out.println("Ihr angegebner Betrag kann nicht ausgezahlt werden.");
+            System.out.println("Möglicher zu auszahlender Betrag: " + (kontoStand + kreditLimit) + "€");
             return false;
         }
     }
@@ -52,9 +58,8 @@ public class Konto {
     @Override
     public String toString() {
         return "\nInhaber\n " + inhaber +
-                "\n\nKontostand: " + kontoStand +
-                "\nKreditlimit: " + kreditLimit +
-                "\nZinsguthaben: " + zinsGuthaben
-                + "\n---------------------------------------------------";
+                "\n\nKontostand: " + kontoStand + "€" +
+                "\nKreditlimit: " + kreditLimit + "€" +
+                "\nZinsguthaben: " + zinsGuthaben + "€";
     }
 }

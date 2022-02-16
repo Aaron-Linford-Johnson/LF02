@@ -18,6 +18,7 @@ public class Girokonto extends Konto {
     public boolean ueberweisen(double betrag, Girokonto girokonto) {
         if (auszahlen(betrag)) {
             girokonto.einzahlen(betrag);
+            System.out.println(betrag + "€ wurden auf das Konto von " + girokonto.getInhaber().getVorname() + " " + girokonto.getInhaber().getNachname() + " überwiesen." );
             return true;
         }
         else {
@@ -28,6 +29,7 @@ public class Girokonto extends Konto {
     @Override
     public String toString() {
         return "[Girokonto]" + super.toString() +
-                "Zinskredit: " + zinsKredit;
+                "\nZinskredit: " + zinsKredit + "€"
+                + "\n---------------------------------------------------";
     }
 }

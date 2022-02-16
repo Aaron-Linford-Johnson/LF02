@@ -6,6 +6,6 @@ public class Sparkonto extends Konto{
 
     @Override
     public String toString() {
-        return "[Sparkonto]\n" + super.toString();
+        return "[Sparkonto]\n" + super.toString() + "\n---------------------------------------------------";
     }
 }
