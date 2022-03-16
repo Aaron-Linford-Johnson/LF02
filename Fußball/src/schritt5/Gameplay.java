@@ -29,10 +29,6 @@ private static int ermittelMannschaftsWert(Mannschaft mannschaft) {
     return mannschaftsWert;
 }
 
-    public static void spielen(Spiel spiel){
-
-    }
-
 
     private static boolean erzieltTor(Spieler schuetze, Torwart torwart){
     boolean tor = false;
