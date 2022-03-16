@@ -43,7 +43,7 @@ public Ware(String bezeichnung, double preis){
     }
 
     public ArrayList<String> getMaengel() {
-    if (maengel.size() == 0){
+    if (maengel.size() > 0){
        maengel.add("Keine Angabe");
     }
         return maengel;

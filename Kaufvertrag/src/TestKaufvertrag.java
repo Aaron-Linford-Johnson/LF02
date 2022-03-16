@@ -18,6 +18,8 @@ public class TestKaufvertrag {
         String datei = "Kaufvertrag/Kaufvertrag.txt";
         PrintWriter writer = new PrintWriter(datei);
 
+
+
         writer.println(kaufvertrag1);
 
         writer.close();
