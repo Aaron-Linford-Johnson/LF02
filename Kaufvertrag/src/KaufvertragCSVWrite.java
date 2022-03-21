@@ -3,8 +3,9 @@ import java.io.PrintWriter;
 
 public class KaufvertragCSVWrite {
     public static void main(String[] args) throws FileNotFoundException {
-        Kaufvertrag kaufvertrag1 = erstelleKaufvertrag();
-        writeCSV(kaufvertrag1);
+        Vertragspartner kaeufer = erstelleKaufvertrag().getKaeufer();
+        Vertragspartner verkaeufer = erstelleKaufvertrag().getVerkaeufer();
+        writeCSV(verkaeufer,kaeufer);
     }
 
     private static Kaufvertrag erstelleKaufvertrag() {
@@ -31,12 +32,15 @@ public class KaufvertragCSVWrite {
         kaufvertrag1.setZahlungModalitaeten("Barzahlung");
 
         return kaufvertrag1;
+
     }
 
-    public static void writeCSV(Kaufvertrag kaufvertrag) throws FileNotFoundException {
-        String datei = "H:/LF02 Blätter/kaufvertrag.csv";
+    public static void writeCSV(Vertragspartner verkaeufer, Vertragspartner kaeufer) throws FileNotFoundException {
+        String datei = "H:/LF02 Blätter/kaufvertrag1.csv";
         PrintWriter printWriter = new PrintWriter(datei);
-        printWriter.println(kaufvertrag);
+        printWriter.print("Vertragspartner;" + "Name;" + "Straße;" + "PLZ;" + "Ort;\n" );
+        printWriter.print("Verkäufer;" + verkaeufer.getVorname() + ", " + verkaeufer.getNachname() + ";" + verkaeufer.getAdresse().getStrasse() + " " + verkaeufer.getAdresse().getHausNr() + ";" + verkaeufer.getAdresse().getPlz() + ";" + verkaeufer.getAdresse().getOrt() + ";\n");
+        printWriter.println("Käufer;" + kaeufer.getVorname() + ", " + kaeufer.getNachname() + ";" + kaeufer.getAdresse().getStrasse() + " " + kaeufer.getAdresse().getHausNr() + ";" + kaeufer.getAdresse().getPlz() + ";" + kaeufer.getAdresse().getOrt());
         printWriter.close();
     }
 }

@@ -7,7 +7,7 @@ import java.util.ArrayList;
 public class KaufvertragCSVread {
     public static void main(String[] args) throws IOException {
 
-        String datei = "H:/LF02 Blätter/Kaufvertrag.csv";
+        String datei = "H:/LF02 Blätter/Kaufvertrag1.csv";
         BufferedReader br = new BufferedReader(new FileReader(datei));
         String zeile;
 
