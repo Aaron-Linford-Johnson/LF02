@@ -41,6 +41,7 @@ public class KaufvertragCSVaendern {
         }
 
         Vertragspartner kaeufer = new Vertragspartner(vornameK, nachnameK);
+
         Vertragspartner verkaeufer = new Vertragspartner(vornameV, nachnameV);
 
         System.out.println(kaeufer);

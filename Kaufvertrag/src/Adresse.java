@@ -46,7 +46,6 @@ public class Adresse {
 
     @Override
     public String toString() {
-        return "\nStraße: " + strasse + "\nHausnummer: " + hausNr +
-                "\nPostleitzahl: " + plz + "\nOrt: " + ort;
+        return strasse + " " + hausNr + ", " + plz + " " + ort;
     }
 }
