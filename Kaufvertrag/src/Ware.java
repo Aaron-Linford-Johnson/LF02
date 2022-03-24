@@ -31,6 +31,7 @@ public Ware(String bezeichnung, double preis){
     }
 
     public double getPreis() {
+
         return preis;
     }
 

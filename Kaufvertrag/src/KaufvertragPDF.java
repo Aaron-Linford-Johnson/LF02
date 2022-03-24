@@ -1,17 +1,14 @@
 import com.itextpdf.io.font.constants.StandardFonts;
+import com.itextpdf.io.image.ImageDataFactory;
 import com.itextpdf.kernel.font.PdfFont;
 import com.itextpdf.kernel.font.PdfFontFactory;
 import com.itextpdf.kernel.pdf.PdfDocument;
 import com.itextpdf.kernel.pdf.PdfWriter;
 import com.itextpdf.layout.Document;
 import com.itextpdf.layout.Style;
-import com.itextpdf.layout.element.Cell;
-import com.itextpdf.layout.element.Paragraph;
-import com.itextpdf.layout.element.Table;
-import com.itextpdf.layout.element.Text;
+import com.itextpdf.layout.element.*;
 import com.itextpdf.layout.property.TextAlignment;
 
-import java.awt.*;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
@@ -35,66 +32,82 @@ public class KaufvertragPDF {
         //Überschrift
         Style fontueberschrift = new Style();
         fontueberschrift.setFont(PdfFontFactory.createFont(StandardFonts.HELVETICA));
-        fontueberschrift.setFontSize(30);
+        fontueberschrift.setFontSize(23);
         fontueberschrift.setBold();
-        fontueberschrift.setUnderline();
-        fontueberschrift.setTextAlignment(TextAlignment.CENTER);
+        fontueberschrift.setTextAlignment(TextAlignment.LEFT);
         //Absatzüberschrift
         Style fontAbsatzUeberschrift = new Style();
         fontAbsatzUeberschrift.setFont(PdfFontFactory.createFont(StandardFonts.HELVETICA));
         fontAbsatzUeberschrift.setFontSize(17);
-        fontAbsatzUeberschrift.setUnderline();
-        fontAbsatzUeberschrift.setItalic();
-
+        //pImage Kleingedruckt
+        Style fontSmallPrint = new Style();
+        fontSmallPrint.setFontSize(10);
+        fontSmallPrint.setTextAlignment(TextAlignment.LEFT);
+        //Keine Garantie
+        Style garantie
+        //----------------------------------------------------------------------------------------------
         //Käufer
         Vertragspartner kaeufer = new Vertragspartner("Azam", "Alalali");
         kaeufer.setAdresse(new Adresse("Tom Straße", "12","28277","Bremen"));
         kaeufer.setAusweisNr("123456");
-        //Verkäufer
-        Vertragspartner verkaeufer = new Vertragspartner("Aaron", "Johnson");
-        verkaeufer.setAdresse(new Adresse("Timmer Straße","91","28277","Bremen"));
-        verkaeufer.setAusweisNr("654321");
+
         //Ware
-        Ware kette = new Ware("Königskette", 10000.500);
-        kette.setBeschreibung("Die perfekte Kette um sich viele Prüfungen zu Angeln!");
+        Ware kette = new Ware("Königskette", 10000);
+        kette.setBeschreibung("Die perfekte Kette um sich viele Prüfungen zu Angeln! Hochwertige Diamanten wurden in die 18 Karat Goldkette eingepflanzt. Sie passt zu jedem Outfit und sorgt für absulute coolnis. Die beste Kette!!!");
         kette.getBesonderheiten().add("Frauenmagnet");
-        kette.getMaengel().add("Das zu lange tragen dieser Kette kann dazu führen, dass jede Frau auf der Welt auf sie steht außer die Frauen der Familie Johnson");
-
-
-        Paragraph ueberschrift = new Paragraph("Kaufvertrag");
+        //------------------------------------------------------------------------------------------------
+        //Überschrift Document
+        Paragraph ueberschrift = new Paragraph("Kaufvertrag vom XX.XX.XXXX");
         ueberschrift.addStyle(fontueberschrift);
         ueberschrift.add("\n");
+        ueberschrift.add("\n");
+
+        //Warenabsatz Überschrift
+        Paragraph ware = new Paragraph(new Text("Verkaufte Ware").addStyle(fontAbsatzUeberschrift));
+        ware.add("\n");
+
+        //Bild von Kette
+        String ketteK = "H:/LF02 Blätter/KingK.jpg";
+        Image image1 = new Image(ImageDataFactory.create(ketteK));
+        Paragraph pImage = new Paragraph();
+        pImage.add(image1);
+        pImage.add(new Text("\nBild der Kette").addStyle(fontSmallPrint));
+        pImage.add("\n");
+
         //Warentabelle
         Table waretable = new Table(2);
         Cell header1 = new Cell();
-        header1.add(new Paragraph("Text"));
+        header1.add(new Paragraph());
         header1.setTextAlignment(TextAlignment.CENTER);
-        waretable.addHeaderCell()
+        waretable.addHeaderCell(header1);
+        Cell header2 = new Cell();
+        header2.add(new Paragraph());
+        header2.setTextAlignment(TextAlignment.CENTER);
+        waretable.addHeaderCell(header2);
+        waretable.addCell("Bezeichnung");
+        waretable.addCell(kette.getBezeichnung());
+        waretable.addCell("Beschreibung");
+        waretable.addCell(kette.getBeschreibung());
+        waretable.addCell("Preis");
+        waretable.addCell("" + kette.getPreis() + "€");
+        waretable.addCell("Besonderheiten");
+        waretable.addCell("" + kette.getBesonderheiten());
+        waretable.addCell("Mängel");
+        waretable.addCell("" + kette.getMaengel());
 
-        Paragraph ware = new Paragraph(new Text("Ware Information").addStyle(fontAbsatzUeberschrift));
-        ware.add("\n");
-        ware.add("" + kette);
-        ware.add("\n");
-        ware.add("\n");
-
+        //Käufer Information
         Paragraph pKaeufer = new Paragraph(new Text("Käufer Information").addStyle(fontAbsatzUeberschrift));
         pKaeufer.add("\n");
         pKaeufer.add("" + kaeufer);
         pKaeufer.add("\n");
         pKaeufer.add("\n");
 
-
-        Paragraph pverkaeufer = new Paragraph(new Text("Verkäufer Information").addStyle(fontAbsatzUeberschrift));
-
-        pverkaeufer.add("\n");
-        pverkaeufer.add("" + verkaeufer);
-        pverkaeufer.add("\n");
-        pverkaeufer.add("\n");
-
         document.add(ueberschrift);
         document.add(ware);
+        document.add(pImage);
+        document.add(waretable);
         document.add(pKaeufer);
-        document.add(pverkaeufer);
+
 
         document.close();
     }
