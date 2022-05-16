@@ -1,3 +1,5 @@
+package buisnessObjects;
+
 public class Kaufvertrag {
 
     private Vertragspartner verkaeufer;
@@ -9,7 +11,7 @@ public class Kaufvertrag {
      * Konstruktor.
      * @param verkaeufer	Der Verkäufer.
      * @param kaeufer		Der Käufer.
-     * @param ware			Die Ware.
+     * @param ware			Die buisnessobjects.Ware.
      */
     public Kaufvertrag(Vertragspartner verkaeufer, Vertragspartner kaeufer, Ware ware) {
         this.verkaeufer = verkaeufer;
@@ -42,16 +44,16 @@ public class Kaufvertrag {
     }
 
     /**
-     * Gibt die Ware aus.
-     * @return	Die Ware.
+     * Gibt die buisnessobjects.Ware aus.
+     * @return	Die buisnessobjects.Ware.
      */
     public Ware getWare() {
         return ware;
     }
 
     /**
-     * Ändert die Ware.
-     * @param ware	Die neue Ware.
+     * Ändert die buisnessobjects.Ware.
+     * @param ware	Die neue buisnessobjects.Ware.
      */
     public void setWare(Ware ware) {
         this.ware = ware;
@@ -79,10 +81,10 @@ public class Kaufvertrag {
      */
     @Override
     public String toString() {
-        String text = "Kaufvertrag: ";
+        String text = "buisnessobjects.Kaufvertrag: ";
         text += "\n\tVerkäufer: " + verkaeufer;
         text += "\n\tKäufer: " + kaeufer;
-        text += "\n\tWare: " + ware;
+        text += "\n\tbuisnessobjects.Ware: " + ware;
         text += "\n\tZahlungsmodalitäten: ";
         text += "\n\t\t" + zahlungsModalitaeten;
         return text;

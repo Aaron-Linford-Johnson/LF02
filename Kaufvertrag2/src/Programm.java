@@ -1,6 +1,11 @@
+import buisnessObjects.Adresse;
+import buisnessObjects.Kaufvertrag;
+import buisnessObjects.Vertragspartner;
+import buisnessObjects.Ware;
+
 public class Programm {
     public static void main(String[] args) {
-        // businessobjects.Ware anlegen.
+        // businessobjects.buisnessobjects.Ware anlegen.
         Ware ware = new Ware("Laptop", 250.0);
         ware.setBeschreibung("Super krasses Gaming-Laptop");
         ware.getBesonderheitenListe().add("Tasche");
@@ -15,10 +20,11 @@ public class Programm {
         Vertragspartner verkaeufer = new Vertragspartner("Joachim", "Bredull");
         verkaeufer.setAusweisNr("9876543210");
         verkaeufer.setAdresse(new Adresse("Auch zu Hause", "7", "28195", "Bremen"));
-        // businessobjects.Kaufvertrag anlegen.
+        // businessobjects.buisnessobjects.Kaufvertrag anlegen.
         Kaufvertrag kaufvertrag = new Kaufvertrag(verkaeufer, kaeufer, ware);
         kaufvertrag.setZahlungsModalitaeten("Privater Barverkauf");
-        // businessobjects.Kaufvertrag ausgeben.
+        // businessobjects.buisnessobjects.Kaufvertrag ausgeben.
         System.out.println(kaufvertrag);
     }
+
 }

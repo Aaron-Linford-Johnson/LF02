@@ -1,3 +1,5 @@
+package buisnessObjects;
+
 import java.util.ArrayList;
 
 public class Ware {
@@ -11,8 +13,8 @@ public class Ware {
         /**
          * Konstruktor.
          *
-         * @param bezeichnung Die Bezeichnung der Ware.
-         * @param preis       Der Preis der Ware.
+         * @param bezeichnung Die Bezeichnung der buisnessobjects.Ware.
+         * @param preis       Der Preis der buisnessobjects.Ware.
          */
         public Ware(String bezeichnung, double preis) {
             this.bezeichnung = bezeichnung;
@@ -22,72 +24,72 @@ public class Ware {
         }
 
         /**
-         * Gibt die Bezeichnung der Ware aus.
+         * Gibt die Bezeichnung der buisnessobjects.Ware aus.
          *
-         * @return Die Bezeichnung der Ware.
+         * @return Die Bezeichnung der buisnessobjects.Ware.
          */
         public String getBezeichnung() {
             return bezeichnung;
         }
 
         /**
-         * Aktualisiert die Bezeichnung der Ware.
+         * Aktualisiert die Bezeichnung der buisnessobjects.Ware.
          *
-         * @param bezeichnung Die neue Bezeichnung der Ware.
+         * @param bezeichnung Die neue Bezeichnung der buisnessobjects.Ware.
          */
         public void setBezeichnung(String bezeichnung) {
             this.bezeichnung = bezeichnung;
         }
 
         /**
-         * Gibt die Beschreibung der Ware aus.
+         * Gibt die Beschreibung der buisnessobjects.Ware aus.
          *
-         * @return Die Beschreibung der Ware.
+         * @return Die Beschreibung der buisnessobjects.Ware.
          */
         public String getBeschreibung() {
             return beschreibung;
         }
 
         /**
-         * Aktualisiert die Beschreibung der Ware.
+         * Aktualisiert die Beschreibung der buisnessobjects.Ware.
          *
-         * @param beschreibung Die neue Beschreibung der Ware.
+         * @param beschreibung Die neue Beschreibung der buisnessobjects.Ware.
          */
         public void setBeschreibung(String beschreibung) {
             this.beschreibung = beschreibung;
         }
 
         /**
-         * Gibt den Preis der Ware aus.
+         * Gibt den Preis der buisnessobjects.Ware aus.
          *
-         * @return Der Preis der Ware.
+         * @return Der Preis der buisnessobjects.Ware.
          */
         public double getPreis() {
             return preis;
         }
 
         /**
-         * Aktualisiert den Preis der Ware.
+         * Aktualisiert den Preis der buisnessobjects.Ware.
          *
-         * @param preis Der neue Preis der Ware.
+         * @param preis Der neue Preis der buisnessobjects.Ware.
          */
         public void setPreis(double preis) {
             this.preis = preis;
         }
 
         /**
-         * Gibt die Liste der Besonderheiten der Ware aus.
+         * Gibt die Liste der Besonderheiten der buisnessobjects.Ware aus.
          *
-         * @return Die Liste der Besonderheiten der Ware.
+         * @return Die Liste der Besonderheiten der buisnessobjects.Ware.
          */
         public ArrayList<String> getBesonderheitenListe() {
             return besonderheitenListe;
         }
 
         /**
-         * Gibt die Liste der Mängel der Ware aus.
+         * Gibt die Liste der Mängel der buisnessobjects.Ware aus.
          *
-         * @return Die Liste der Mängel der Ware.
+         * @return Die Liste der Mängel der buisnessobjects.Ware.
          */
         public ArrayList<String> getMaengelListe() {
             return maengelListe;

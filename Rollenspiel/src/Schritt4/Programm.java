@@ -4,7 +4,7 @@ package Schritt4;
 public class Programm {
     public static void main(String[] args) throws KeineKraftException {
 
-        Elfe azam = new Elfe("Azam", 1);
+        Elfe azam = new Elfe("Azam", 10);
 
         try {
             azam.rennnen();

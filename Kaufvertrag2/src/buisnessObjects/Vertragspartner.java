@@ -1,3 +1,5 @@
+package buisnessObjects;
+
 public class Vertragspartner {
     private String vorname;
     private String nachname;
@@ -63,16 +65,16 @@ public class Vertragspartner {
     }
 
     /**
-     * Gibt die Adresse des Vertragspartners aus.
-     * @return	Die Adresse des Vertragspartners.
+     * Gibt die buisnessobjects.Adresse des Vertragspartners aus.
+     * @return	Die buisnessobjects.Adresse des Vertragspartners.
      */
     public Adresse getAdresse() {
         return adresse;
     }
 
     /**
-     * Aktualisiert die Adresse des Vertragspartners.
-     * @param adresse	Die neue Adresse des Vertragspartners.
+     * Aktualisiert die buisnessobjects.Adresse des Vertragspartners.
+     * @param adresse	Die neue buisnessobjects.Adresse des Vertragspartners.
      */
     public void setAdresse(Adresse adresse) {
         this.adresse = adresse;
@@ -86,7 +88,7 @@ public class Vertragspartner {
     public String toString() {
         String text = vorname + " " + nachname;
         text += "\n\t\tAusweisNr: " + ausweisNr;
-        text += "\n\t\tAdresse: " + adresse;
+        text += "\n\t\tbuisnessobjects.Adresse: " + adresse;
         return text;
     }
 }

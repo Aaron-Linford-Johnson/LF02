@@ -1,3 +1,5 @@
+package buisnessObjects;
+
 public class Adresse {
 
         private String strasse;

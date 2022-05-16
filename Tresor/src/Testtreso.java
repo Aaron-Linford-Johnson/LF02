@@ -17,7 +17,7 @@ public class Testtreso {
 
         System.out.println(tresor);
 
-        tresor.getGegenstand(3);
+        tresor.getGegenstand(2);
 
     }
 }

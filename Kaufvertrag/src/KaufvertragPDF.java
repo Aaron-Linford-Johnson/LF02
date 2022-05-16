@@ -44,7 +44,7 @@ public class KaufvertragPDF {
         fontSmallPrint.setFontSize(10);
         fontSmallPrint.setTextAlignment(TextAlignment.LEFT);
         //Keine Garantie
-        Style garantie
+
         //----------------------------------------------------------------------------------------------
         //Käufer
         Vertragspartner kaeufer = new Vertragspartner("Azam", "Alalali");
@@ -103,10 +103,11 @@ public class KaufvertragPDF {
         pKaeufer.add("\n");
 
         document.add(ueberschrift);
+        document.add(pKaeufer);
         document.add(ware);
         document.add(pImage);
         document.add(waretable);
-        document.add(pKaeufer);
+
 
 
         document.close();
