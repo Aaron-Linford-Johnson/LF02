@@ -91,6 +91,37 @@ public class VertragspartnerDAO {
         }
         return vertragspartnerListe;
     }
+
+
+    public void delete(String ausweisNr) {
+
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+
+        // Verbindung zu Datenbank herstellen
+        try {
+            connection = DriverManager.getConnection(CONNECTIONSTRING);
+
+            //SQL-Abfrage erstellen
+            String sql = "DELETE FROM vertragspartner WHERE ausweisNr = ?";
+            preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1, ausweisNr);
+
+            //SQL-Abfrage ausführen
+            preparedStatement.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                connection.close();
+
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
     private Vertragspartner createObject(ResultSet resultSet) throws SQLException {
 
         //ResultSet auswerten

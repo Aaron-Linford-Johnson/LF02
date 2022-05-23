@@ -101,6 +101,35 @@ public class WareDAO {
         return warenListe;
     }
 
+    public void delete(String WarenNr) {
+
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+
+        // Verbindung zu Datenbank herstellen
+        try {
+            connection = DriverManager.getConnection(CONNECTIONSTRING);
+
+            //SQL-Abfrage erstellen
+            String sql = "DELETE FROM ware WHERE WarenNr = ?";
+            preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1, WarenNr);
+
+            //SQL-Abfrage ausführen
+            preparedStatement.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                connection.close();
+
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
     private Ware createObject(ResultSet resultSet) throws SQLException {
         int nr = resultSet.getInt("WarenNr");
         String bezeichnung = resultSet.getString("bezeichnung");

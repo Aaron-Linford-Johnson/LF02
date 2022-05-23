@@ -8,6 +8,7 @@ import java.util.ArrayList;
 public class Programm2 {
     public static void main(String[] args) throws ClassNotFoundException {
         VertragspartnerDAO vertragspartnerDAO = new VertragspartnerDAO();
+        WareDAO wareDAO = new WareDAO();
 
         Vertragspartner vertragspartner = new VertragspartnerDAO().read("1234");
         System.out.println(vertragspartner);
@@ -21,6 +22,15 @@ public class Programm2 {
         Ware ware = new WareDAO().read("2");
         System.out.println(ware);
 
+        ArrayList<Ware> wareListe = new WareDAO().read();
+        System.out.println("------------------------------------------------------------------------------");
+        System.out.println(wareListe);
+
         System.out.println("super!!!!");
+
+        vertragspartnerDAO.delete("1234");
+        wareDAO.delete("1");
+
+
     }
 }
