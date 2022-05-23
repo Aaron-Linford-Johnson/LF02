@@ -6,7 +6,7 @@ import buisnessObjects.Ware;
 public class Programm {
     public static void main(String[] args) {
         // businessobjects.buisnessobjects.Ware anlegen.
-        Ware ware = new Ware("Laptop", 250.0);
+        Ware ware = new Ware( 1,"Laptop", 250.0);
         ware.setBeschreibung("Super krasses Gaming-Laptop");
         ware.getBesonderheitenListe().add("Tasche");
         ware.getBesonderheitenListe().add("Gaming-Maus");
