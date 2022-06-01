@@ -130,7 +130,7 @@ public class WareDAO {
         }
     }
 
-    public void update(String ausweisNr, String strasse, String hausNr) {
+    public void update(String warenNr, String preis, String beschreibung) {
 
         Connection connection = null;
         PreparedStatement preparedStatement = null;
@@ -140,11 +140,11 @@ public class WareDAO {
             connection = DriverManager.getConnection(CONNECTIONSTRING);
 
             //SQL-Abfrage erstellen
-            String sql = "UPDATE ware SET strasse = ?,hausNr = ? WHERE ausweisNr = ?";
+            String sql = "UPDATE ware SET beschreibung = ?,preis = ? WHERE ausweisNr = ?";
             preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setString(1, strasse );
-            preparedStatement.setString(2, hausNr);
-            preparedStatement.setString(3, ausweisNr);
+            preparedStatement.setString(1, beschreibung );
+            preparedStatement.setString(2, preis);
+            preparedStatement.setString(3, warenNr);
 
 
             //SQL-Abfrage ausführen
@@ -162,10 +162,12 @@ public class WareDAO {
         }
     }
 
-    public void insertInto(String ausweisNr, String vorname, String nachname, String strasse, String hausNr, String plz, String ort) {
+    public void insertInto(Ware ware) {
 
         Connection connection = null;
         PreparedStatement preparedStatement = null;
+        String besonderheitenString;
+        String maengelString;
 
         // Verbindung zu Datenbank herstellen
         try {
@@ -174,13 +176,14 @@ public class WareDAO {
             //SQL-Abfrage erstellen
             String sql = "INSERT INTO ware VALUES (?,?,?,?,?,?,?)";
             preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setString(1, ausweisNr );
-            preparedStatement.setString(2, vorname);
-            preparedStatement.setString(3, nachname);
-            preparedStatement.setString(4, strasse);
-            preparedStatement.setString(5, hausNr);
-            preparedStatement.setString(6, plz);
-            preparedStatement.setString(7, ort);
+            preparedStatement.setInt(1,ware.getWarenNr() );
+            preparedStatement.setString(2, ware.getBezeichnung() );
+            preparedStatement.setString(3, ware.getBeschreibung());
+            preparedStatement.setDouble(4, ware.getPreis());
+            besonderheitenString = ware.getBesonderheitenListe().toString();
+            maengelString = ware.getMaengelListe().toString();
+            preparedStatement.setString(5, besonderheitenString);
+            preparedStatement.setString(6, maengelString);
             //SQL-Abfrage ausführen
             preparedStatement.executeUpdate();
 
