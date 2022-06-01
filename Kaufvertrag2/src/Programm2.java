@@ -10,7 +10,9 @@ public class Programm2 {
         VertragspartnerDAO vertragspartnerDAO = new VertragspartnerDAO();
         WareDAO wareDAO = new WareDAO();
 
-        Vertragspartner vertragspartner = new VertragspartnerDAO().read("1234");
+        Vertragspartner vertragspartner = new VertragspartnerDAO().read("1673");
+        vertragspartnerDAO.update("1673", "Corona strasse", "1");
+        vertragspartnerDAO.insertInto("8181","Erling","Haarland", "Juluiskante", "546","28277", "Bremen");
         System.out.println(vertragspartner);
         System.out.println("---------------------------------------------------");
         ArrayList<Vertragspartner> vertragspartnerListe = vertragspartnerDAO.read();
@@ -28,8 +30,7 @@ public class Programm2 {
 
         System.out.println("super!!!!");
 
-        vertragspartnerDAO.delete("1234");
-        wareDAO.delete("1");
+
 
 
     }

@@ -122,6 +122,73 @@ public class VertragspartnerDAO {
         }
     }
 
+
+    public void update(String ausweisNr, String strasse, String hausNr) {
+
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+
+        // Verbindung zu Datenbank herstellen
+        try {
+            connection = DriverManager.getConnection(CONNECTIONSTRING);
+
+            //SQL-Abfrage erstellen
+            String sql = "UPDATE vertragspartner SET strasse = ?,hausNr = ? WHERE ausweisNr = ?";
+            preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1, strasse );
+            preparedStatement.setString(2, hausNr);
+            preparedStatement.setString(3, ausweisNr);
+
+
+            //SQL-Abfrage ausführen
+            preparedStatement.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                connection.close();
+
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public void insertInto(String ausweisNr, String vorname, String nachname, String strasse, String hausNr, String plz, String ort) {
+
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+
+        // Verbindung zu Datenbank herstellen
+        try {
+            connection = DriverManager.getConnection(CONNECTIONSTRING);
+
+            //SQL-Abfrage erstellen
+            String sql = "INSERT INTO vertragspartner VALUES (?,?,?,?,?,?,?)";
+            preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1, ausweisNr );
+            preparedStatement.setString(2, vorname);
+            preparedStatement.setString(3, nachname);
+            preparedStatement.setString(4, strasse);
+            preparedStatement.setString(5, hausNr);
+            preparedStatement.setString(6, plz);
+            preparedStatement.setString(7, ort);
+            //SQL-Abfrage ausführen
+            preparedStatement.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                connection.close();
+
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
     private Vertragspartner createObject(ResultSet resultSet) throws SQLException {
 
         //ResultSet auswerten
