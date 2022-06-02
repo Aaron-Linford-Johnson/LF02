@@ -174,18 +174,20 @@ public class WareDAO {
             connection = DriverManager.getConnection(CONNECTIONSTRING);
 
             //SQL-Abfrage erstellen
-            String sql = "INSERT INTO ware VALUES (?,?,?,?,?,?,?)";
+            String sql = "INSERT INTO ware VALUES (?,?,?,?,?)";
             preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setInt(1,ware.getWarenNr() );
-            preparedStatement.setString(2, ware.getBezeichnung() );
-            preparedStatement.setString(3, ware.getBeschreibung());
-            preparedStatement.setDouble(4, ware.getPreis());
+            preparedStatement.setString(1, ware.getBezeichnung() );
+            preparedStatement.setString(2, ware.getBeschreibung());
+            preparedStatement.setDouble(3, ware.getPreis());
             besonderheitenString = ware.getBesonderheitenListe().toString();
             maengelString = ware.getMaengelListe().toString();
-            preparedStatement.setString(5, besonderheitenString);
-            preparedStatement.setString(6, maengelString);
+            preparedStatement.setString(4, besonderheitenString);
+            preparedStatement.setString(5, maengelString);
             //SQL-Abfrage ausführen
             preparedStatement.executeUpdate();
+            ResultSet resultSet = preparedStatement.getGeneratedKeys();
+            int warenNr = resultSet.getInt("Last_insert_rowid()");
+            ware.setWarenNr(warenNr);
 
         } catch (SQLException e) {
             e.printStackTrace();
