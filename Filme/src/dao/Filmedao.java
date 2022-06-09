@@ -71,16 +71,15 @@ public class Filmedao {
     }
 
     //Update------------------------------------------------------------------------------------------------
-    public void update(int nr, String stringAtribut, String stringAenderung) {
+    public void update(int nr, String stringDieAenderung) {
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         try {
             connection = DriverManager.getConnection(CONNECTIONSTSTRING);
-            String sql = "UPADTE dvd SET ? = ? WHERE nr = ? ";
+            String sql = "UPDATE dvd SET hauptD = ? WHERE nr = ? ";
             preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setString(1, stringAtribut);
-            preparedStatement.setString(2, stringAenderung);
-            preparedStatement.setInt(3, nr);
+            preparedStatement.setString(1, stringDieAenderung);
+            preparedStatement.setInt(2, nr);
 
 
             preparedStatement.executeUpdate();
