@@ -47,8 +47,8 @@ public class Etage {
 
     @Override
     public String toString() {
-        return "Etage \n\n" + "Name der Etage: " +  this.name + "\n"
-                + "Liste von allen Zimmern: \n" + this.zimmerListe + "\n";
+        return "Etage: " + name +", Zimmer: " + getAnzahlzimmer() + ", Zimmer frei: " + getAnzahlzimmerFrei() +
+                ", Gäste: " + getAnzahlGaeste() + "\n";
     }
 }
 

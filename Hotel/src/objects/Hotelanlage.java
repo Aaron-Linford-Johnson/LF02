@@ -60,8 +60,11 @@ public class Hotelanlage {
 
     @Override
     public String toString() {
-        return "Hotelanlage \n\n" + "Name der Hotelanlage: " + name + "\n" +
-                "Adresse: " + adresse + "\n" + "Liste von aller Gebäude: \n" + gebaeudeListe + "\n";
+        String text = "Hotelanlage: " + name + "\n Adresse: " + adresse;
+        for (Gebaeude g: gebaeudeListe) {
+            text += g.toString();
+        }
+        return text;
     }
 }
 

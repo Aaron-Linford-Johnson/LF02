@@ -52,7 +52,12 @@ public class Gebaeude {
 
     @Override
     public String toString() {
-        return "Gebäude \n\n" + "Name des Gebäudes: " + this.name + "\n" +
-                "\"Liste von allen Etagen: \n" + etagenListe + "\n";
+        String text = "\nGebäude: " + this.name;
+        for (Etage e: etagenListe) {
+            text += e.toString();
+        }
+        text += "gesamt: , Zimmer: " + getAnzahlZimmer() + ", Zimmer frei: " +
+                getAnzahlZimmerFrei() + ", Gäste: " + getAnzahlGaeste() + "\n";
+        return text;
     }
 }
