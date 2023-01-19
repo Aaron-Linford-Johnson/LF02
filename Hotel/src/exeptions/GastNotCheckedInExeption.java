@@ -2,7 +2,7 @@ package exeptions;
 
 import objects.Gast;
 
-public class GastNotCheckedInExeption extends Throwable {
+public class GastNotCheckedInExeption extends Exception {
     private Gast gast;
 
     public GastNotCheckedInExeption(Gast gast) {
