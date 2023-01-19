@@ -12,8 +12,7 @@ public class FilmSerie {
     private String auflösung;
     private int dauer;
 
-    public FilmSerie(int nr, String titel, String hauptD, String genre, int jahr,double preis, int bewertung, String auflösung, int dauer) {
-        this.nr = nr;
+    public FilmSerie(String titel, String hauptD, String genre, int jahr,double preis, int bewertung, String auflösung, int dauer) {
         this.titel = titel;
         this.hauptD = hauptD;
         this.genre = genre;
@@ -98,7 +97,8 @@ public class FilmSerie {
 
     @Override
     public String toString() {
-        return "Film-/Seriennummer: " + nr + "\nTitel: " + titel + "\nHauptdarsteller" + hauptD +
+        return "Film-/Seriennummer: " + nr + "\nTitel: " + titel + "\nHauptdarsteller: " + hauptD +
                 "\nGenre: " + genre + "\nErscheinungsjahr: " + jahr + "\nPreis: " + preis + "\nBewertung: " + bewertung;
     }
 }
+
