@@ -45,7 +45,7 @@ public class Regal {
     public double getGewichtGesamt() {
         double zaehler = 0;
         for (Behaelter b : behaelterListe) {
-            zaehler += b.getGewichtInhalt();
+            zaehler += b.getGewichtInhalt() + b.getGewichtBehaelter();
         }
         return  zaehler;
     }
