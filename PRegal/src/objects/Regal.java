@@ -22,7 +22,13 @@ public class Regal {
     }
 
     public void removeBehaelter(Behaelter behaelter) throws BehaelterNichtGefundenExeption {
+        for(Behaelter b : behaelterListe ) {
+            if (b.getBehaelterNr() == behaelter.getBehaelterNr()) {
                 behaelterListe.remove(behaelter);
+            } else {
+                throw new BehaelterNichtGefundenExeption(behaelter.getBehaelterNr());
+            }
+        }
     }
 
     public Behaelter getBehaelter(String behaelterNr) throws BehaelterNichtGefundenExeption {

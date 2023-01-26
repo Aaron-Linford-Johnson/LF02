@@ -27,10 +27,20 @@ public class programm {
         //Ausgabe des Regales
         System.out.println(r1);
         //t2 entfernen
-        r1.removeBehaelter(t2);
+        try {
+            r1.removeBehaelter(t2);
+        } catch (BehaelterNichtGefundenExeption e) {
+            e.getMessage();
+        }
+
         //Ausgabe des Regales
         System.out.println(r1);
         //Entfernten behälter aufrufen
-        r1.getBehaelter("2002");
+        try {
+            r1.getBehaelter("2002");
+        } catch (BehaelterNichtGefundenExeption e) {
+            e.getMessage();
+        }
+
     }
 }
